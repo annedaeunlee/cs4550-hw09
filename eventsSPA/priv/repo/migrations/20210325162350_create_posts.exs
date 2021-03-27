@@ -1,0 +1,20 @@
+# Some parts of code below were taken from Professor Nat Tuck's scratch repository 
+
+defmodule EventsSPA.Repo.Migrations.CreatePosts do
+  use Ecto.Migration
+
+  def change do
+    create table(:posts) do
+      add :date, :naive_datetime, null: false
+      add :description, :string
+      add :name, :string, null: false
+
+      add :user_id, references(:users, on_delete: :nothing), null: false
+
+      timestamps()
+    end
+
+    create index(:posts, [:user_id])
+
+  end
+end
