@@ -1,0 +1,18 @@
+[Unit]
+Description= HW09 Events SPA
+
+[Service]
+Type=simple
+User=eventsspa
+Group=eventsspa
+Restart=on-failure
+Environment=MIX_ENV=prod
+Environment=PORT=4014
+Environment=PROD=true
+Environment=LANG=en_US.UTF-8
+
+WorkingDirectory=/home/eventsspa/cs4550-hw09
+ExecStart=/bin/bash /home/eventsspa/cs4550-hw09/start.sh
+
+[Install]
+WantedBy=multi-user.target
