@@ -3,7 +3,7 @@
 import store from './storage/store';
 
 export async function api_get(path) {
-    let text = await fetch("http://events-spa.annelee2001.com/api/v1" + path, {});
+    let text = await fetch("http://events-spa-server.annelee2001.com/api/v1" + path, {});
     let resp = await text.json();
     return resp.data;
 }
@@ -16,7 +16,7 @@ export async function api_post(path, data) {
         },
         body: JSON.stringify(data),
     };
-    let text = await fetch("http://events-spa.annelee2001.com/api/v1" + path, opts);
+    let text = await fetch("http://events-spa-server.annelee2001.com/api/v1" + path, opts);
     return await text.json();
 }
 
@@ -62,7 +62,7 @@ export function create_post(post) {
     let data = new FormData();
     data.append("post[photo]", post.photo);
     data.append("post[body]", post.body);
-    fetch("http://events-spa.annelee2001.com/api/v1/posts", {
+    fetch("http://events-spa-server.annelee2001.com/api/v1/posts", {
         method: 'POST',
         // Fetch will handle reading the file object and
         // submitting this as a multipart/form-data request.
