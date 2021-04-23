@@ -1,0 +1,19 @@
+# Code below is taken from Professor Nat Tuck's scratch repository
+server {
+    listen 80;
+    listen [::]:80;
+
+    # TODO: This should be your server name.
+    server_name events-spa.annelee2001.com;
+
+    location / {
+        proxy_pass http://localhost:4014;
+    }
+
+    location /socket {
+        proxy_pass http://localhost:4014;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";	 	 
+    }
+}
