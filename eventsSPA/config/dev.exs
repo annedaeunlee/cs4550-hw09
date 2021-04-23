@@ -5,7 +5,7 @@ use Mix.Config
 config :eventsSPA, EventsSPA.Repo,
   username: "postgres",
   password: "postgres",
-  database: "eventsspa_dev",
+  database: "events_dev",
   hostname: "localhost",
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
@@ -17,7 +17,7 @@ config :eventsSPA, EventsSPA.Repo,
 # watchers to your application. For example, we use it
 # with webpack to recompile .js and .css sources.
 config :eventsSPA, EventsSPAWeb.Endpoint,
-  http: [port: 4000],
+  http: [port: 4014],
   debug_errors: true,
   code_reloader: true,
   check_origin: false,
@@ -33,7 +33,7 @@ config :eventsSPA, EventsSPAWeb.Endpoint,
 
 
 config :cors_plug,
-  origin: ["http://localhost:3000"],
+  origin: ["http://localhost:4014"],
   max_age: 86400,
   methods: ["GET", "POST", "PATCH", "DELETE"],
   headers: ["x-auth", "Content-Type"]
